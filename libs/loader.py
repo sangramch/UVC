@@ -25,7 +25,7 @@ def video_loader(video_path, frame_end, step, frame_start=0):
 
 def framepair_loader(video_path, frame_start, frame_end):
 	
-	cap = cv2.VideoCapture("dataset\"+video_path)
+	cap = cv2.VideoCapture("dataset/"+video_path)
 	
 	pair = []
 	id_ = np.zeros(2)
