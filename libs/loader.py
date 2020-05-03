@@ -59,7 +59,6 @@ def framepair_loader(video_path, frame_start, frame_end):
 	return pair
 
 def video_frame_counter(video_path):
-	print(video_path)
 	cap = cv2.VideoCapture(video_path)
 	return cap.get(7)
 
@@ -88,6 +87,7 @@ class VidListv1(torch.utils.data.Dataset):
 	def __getitem__(self, idx):
 		while True:
 			video_ = self.list[idx]
+			print(video_)
 			frame_end = video_frame_counter(video_)-1
 			if frame_end <=0:
 				print("Empty video {}, skip to the next".format(self.list[idx]))
