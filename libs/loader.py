@@ -88,7 +88,7 @@ class VidListv1(torch.utils.data.Dataset):
 		while True:
 			video_ = self.list[idx]
 			print(video_)
-			frame_end = video_frame_counter(video_)-1
+			frame_end = video_frame_counter("dataset/"+video_)-1
 			if frame_end <=0:
 				print("Empty video {}, skip to the next".format(self.list[idx]))
 				idx += 1
