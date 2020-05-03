@@ -237,6 +237,8 @@ def train_iter(args, loader, model, closs, optimizer, epoch, best_loss):
 			loss_ = L1_loss(color2_est, frame2_var, 10, 10, thr=thr, pred1=color1_est, frame1_var = frame1_var)
 
 			if epoch >=1 and args.lc > 0:
+				print("Affinity Size:",aff.size())
+				print("Affinity Size after view:"aff.view(b,1,x,x).size())
 				constraint_loss = torch.sum(closs(aff.view(b,1,x,x))) * args.lc
 				c_losses.update(constraint_loss.item(), frame1_var.size(0))
 				loss = loss_ + constraint_loss
