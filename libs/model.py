@@ -163,7 +163,7 @@ class track_match_comb(nn.Module):
 				aff_norm_tran = self.softmax(aff_p.permute(0,2,1)*self.temp)
 				if self.grid_flat_crop is None:
 				#marker1id0
-					self.grid_flat_crop = create_flat_grid(Fcolor2_crop.size()).permute(0,2,1).detach()
+					self.grid_flat_crop = create_flat_grid(Fgray2_crop.size()).permute(0,2,1).detach()
 				C12 = torch.bmm(self.grid_flat_crop, aff_norm)
 				C11 = torch.bmm(C12, aff_norm_tran)
 				output.append(self.grid_flat_crop)
