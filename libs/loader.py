@@ -51,7 +51,11 @@ def framepair_loader(video_path, frame_start, frame_end):
 		h,w,_ = image.shape
 		h = (h // 64) * 64
 		w = (w // 64) * 64
-		image = cv2.resize(image, (w,h))
+		
+		if(w==0 or h==0):
+			image=cv2.resize(image,(64,64))
+		else:
+			image = cv2.resize(image, (w,h))
 		image = image.astype(np.uint8)
 		pil_im = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
 		pair.append(pil_im)
