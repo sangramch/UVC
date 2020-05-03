@@ -59,6 +59,7 @@ def framepair_loader(video_path, frame_start, frame_end):
 	return pair
 
 def video_frame_counter(video_path):
+	print(video_path)
 	cap = cv2.VideoCapture(video_path)
 	return cap.get(7)
 
