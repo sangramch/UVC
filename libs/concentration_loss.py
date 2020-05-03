@@ -10,6 +10,8 @@ def transform(aff, frame1):
 	"""
 	b,c,h,w = frame1.size()
 	frame1 = frame1.view(b,c,-1)
+	print("Frame1 Size:", frame1.size())
+	print("Aff Size:", aff.size())
 	frame2 = torch.bmm(frame1, aff)
 	return frame2.view(b,c,h,w)
 
