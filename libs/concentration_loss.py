@@ -13,10 +13,10 @@ def transform(aff, frame1):
 	#frame1 size b,c,(h*w) * (h*w)*(h*w)
 	print("Frame1 Size:", frame1.size())
 	print("Aff Size:", aff.size())
-	result = torch.mm(frame1.view(-1, (h*w)), aff)
-	result = result.view(-1,c,(h*w))
-	#frame2 = torch.bmm(frame1, aff)
-	return result.view(b,c,h,w)
+	#result = torch.mm(frame1.view(-1, (h*w)), aff)
+	#result = result.view(-1,c,(h*w))
+	frame2 = torch.bmm(frame1, aff)
+	return frame2.view(b,c,h,w)
 
 def aff2coord(F_size, grid, A = None, temp = None, softmax=None):
 	"""
